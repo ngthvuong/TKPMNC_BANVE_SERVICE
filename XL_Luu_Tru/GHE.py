@@ -12,3 +12,6 @@ class GHE(db.Model):
     Phong = db.relationship("PHONG", back_populates="Ghes")
     
     Ves = db.relationship("VE", back_populates="Ghe", cascade="all, delete-orphan")
+    
+    def __repr__(self):
+        return f'<GHE {self.Ten}>'

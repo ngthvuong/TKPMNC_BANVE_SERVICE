@@ -10,13 +10,9 @@ from XL_Luu_Tru.GHE import GHE
 from XL_Luu_Tru.XUAT_CHIEU import XUAT_CHIEU
 from XL_Luu_Tru.VE import VE
 
-
 import random
 from datetime import datetime, timedelta
 from sqlalchemy.orm import joinedload
-
-
-
 
 def Tao_Du_Lieu():
     if db.session.query(NHAN_VIEN).first():

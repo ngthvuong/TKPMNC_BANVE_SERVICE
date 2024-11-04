@@ -10,3 +10,6 @@ class CA(db.Model):
     Ket_Thuc = db.Column(db.String(5), nullable=False)
     
     Xuat_Chieus = db.relationship("XUAT_CHIEU", back_populates="Ca")
+    
+    def __repr__(self):
+        return f'<CA {self.Ten}>'

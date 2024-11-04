@@ -13,4 +13,4 @@ class CONG_TY(db.Model):
     Raps = db.relationship("RAP", back_populates="Cong_Ty", cascade="all, delete-orphan")
     
     def __repr__(self):
-        return f'<User {self.Ten}>'
+        return f'<CONG_TY {self.Ten}>'

@@ -13,3 +13,6 @@ class VE(db.Model):
     Ghe = db.relationship("GHE", back_populates="Ves")
     Xuat_Chieu = db.relationship("XUAT_CHIEU", back_populates="Ves")
     
+    def __repr__(self):
+        return f'<VE {self.Xuat_Chieu_ID} {self.Gia}>'
+    

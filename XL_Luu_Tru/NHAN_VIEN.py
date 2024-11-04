@@ -17,4 +17,4 @@ class NHAN_VIEN(db.Model):
     Raps = db.relationship("RAP", back_populates="Quan_Ly")
     
     def __repr__(self):
-        return f'<User {self.Email}>'
+        return f'<NHAN_VIEN {self.Email}>'

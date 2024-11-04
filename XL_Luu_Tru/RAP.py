@@ -15,3 +15,6 @@ class RAP(db.Model):
     Cong_Ty = db.relationship("CONG_TY", back_populates="Raps")
     
     Phongs = db.relationship("PHONG", back_populates="Rap", cascade="all, delete-orphan")
+    
+    def __repr__(self):
+        return f'<RAP {self.Ten}>'

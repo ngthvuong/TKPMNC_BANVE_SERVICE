@@ -10,3 +10,6 @@ class LOAI_PHONG(db.Model):
     So_Day = db.Column(db.Integer, nullable=False)
     
     Phongs = db.relationship("PHONG", back_populates="Loai_Phong")
+    
+    def __repr__(self):
+        return f'<LOAI_PHONG {self.Ten}>'

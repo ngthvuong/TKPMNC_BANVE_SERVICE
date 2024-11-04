@@ -20,4 +20,7 @@ class XUAT_CHIEU(db.Model):
     
     Ves = db.relationship("VE", back_populates="Xuat_Chieu", cascade="all, delete-orphan")
     
+    def __repr__(self):
+        return f'<XUAT_CHIEU {self.Ngay_Chieu} {self.Ca_ID}>'
+    
     

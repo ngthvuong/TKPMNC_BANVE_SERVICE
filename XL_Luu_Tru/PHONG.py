@@ -15,3 +15,6 @@ class PHONG(db.Model):
     Ghes = db.relationship("GHE", back_populates="Phong", cascade="all, delete-orphan")
     Xuat_Chieus = db.relationship("XUAT_CHIEU", back_populates="Phong", cascade="all, delete-orphan")
     
+    def __repr__(self):
+        return f'<PHONG {self.Ten}>'
+    

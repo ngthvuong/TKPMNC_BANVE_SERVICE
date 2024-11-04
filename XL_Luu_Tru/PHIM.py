@@ -9,3 +9,6 @@ class PHIM(db.Model):
     
     Xuat_Chieus = db.relationship("XUAT_CHIEU", back_populates="Phim", cascade="all, delete-orphan")
     
+    def __repr__(self):
+        return f'<PHIM {self.Ten}>'
+    

@@ -1,6 +1,6 @@
-from .user_routes import user_bp
+from .Nhan_Vien_Routes import nhan_vien_bp
 
 def init_routes(app):
-    app.register_blueprint(user_bp)
+    app.register_blueprint(nhan_vien_bp)
 
 
