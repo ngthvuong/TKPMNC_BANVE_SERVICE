@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, jsonify
 from XL_Luu_Tru import db
 from Dinh_Tuyen import init_routes
+from Tao_Du_Lieu_Mau import Tao_Du_Lieu
 app = Flask(__name__)
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -21,5 +22,6 @@ init_routes(app)
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+        Tao_Du_Lieu()
     app.run(debug=True, port=6102)
     

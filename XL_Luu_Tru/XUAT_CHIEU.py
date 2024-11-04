@@ -1,6 +1,9 @@
 from . import db
 
 class XUAT_CHIEU(db.Model):
+    
+    __tablename__ = "XUAT_CHIEU"
+    
     ID = db.Column(db.Integer, primary_key=True)
     Ngay_Chieu = db.Column(db.Date, nullable=False)
     Don_Gia = db.Column(db.Integer, nullable=False)
@@ -11,10 +14,10 @@ class XUAT_CHIEU(db.Model):
     Ca_ID = db.Column(db.Integer, db.ForeignKey("CA.ID"), nullable=True)
     
     
-    Phong = db.relationship("PHONG", back_populates="Xuat_Chieus", cascade="all, delete-orphan")
-    Phim = db.relationship("PHIM", back_populates="Xuat_Chieus", cascade="all, delete-orphan")
+    Phong = db.relationship("PHONG", back_populates="Xuat_Chieus")
+    Phim = db.relationship("PHIM", back_populates="Xuat_Chieus")
     Ca = db.relationship("CA", back_populates="Xuat_Chieus")
     
-    Ves = db.relationship("VE", back_populates="Xuat_Chieu")
+    Ves = db.relationship("VE", back_populates="Xuat_Chieu", cascade="all, delete-orphan")
     
     
