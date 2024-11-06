@@ -2,6 +2,8 @@
 class Nhan_Vien_Resource:
     @staticmethod
     def resource(nhan_vien):
+        if not nhan_vien:
+            return None
         return {
             "id" : nhan_vien.ID,
             "email": nhan_vien.Email,
