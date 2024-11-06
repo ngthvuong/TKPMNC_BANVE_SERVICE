@@ -1,7 +1,7 @@
 
-class Nhan_Vien_Resource:
+class Giao_Tiep_Nhan_Vien:
     @staticmethod
-    def resource(nhan_vien):
+    def Doi_Tuong(nhan_vien):
         if not nhan_vien:
             return None
         return {
@@ -12,7 +12,7 @@ class Nhan_Vien_Resource:
         }
     
     @staticmethod
-    def list_resources(nhan_viens):
-        return [Nhan_Vien_Resource.resource(nhan_vien) for nhan_vien in nhan_viens]
+    def Danh_Sach(nhan_viens):
+        return [Giao_Tiep_Nhan_Vien.resource(nhan_vien) for nhan_vien in nhan_viens]
     
     
