@@ -5,7 +5,7 @@ class Giao_Tiep_Phong:
         if not phong:
             return None
         Ket_Qua = {
-            "id" : phong.ID,
+            "ID" : phong.ID,
             "Ten": phong.Ten
         }
         

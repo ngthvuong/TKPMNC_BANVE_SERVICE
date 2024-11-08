@@ -30,7 +30,7 @@ class Bien_Co_Xuat_Chieu:
             )
             .all()
         )
-        return jsonify({"data" : Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus)})
+        return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))
     
     def Lay_Danh_Sach_Chua_Chieu_Theo_Quan_Ly(self):
         Xuat_Chieus = (
@@ -48,7 +48,7 @@ class Bien_Co_Xuat_Chieu:
             )
             .all()
         )
-        return jsonify({"data" : Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus)})    
+        return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))    
     def Lay_Xuat_Chieu(self):
         return jsonify({"success" : True})
     

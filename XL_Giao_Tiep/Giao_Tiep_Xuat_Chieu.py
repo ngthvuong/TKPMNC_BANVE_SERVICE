@@ -1,12 +1,14 @@
 
+from datetime import datetime
 class Giao_Tiep_Xuat_Chieu:
     @staticmethod
     def Doi_Tuong(xuat_chieu):
         if not xuat_chieu:
             return None
+        
         Ket_Qua = {
             "ID" : xuat_chieu.ID,
-            "Ngay_Chieu": xuat_chieu.Ngay_Chieu,
+            "Ngay_Chieu": datetime.strftime(xuat_chieu.Ngay_Chieu, '%d-%m-%Y'),
             "Don_Gia": xuat_chieu.Don_Gia,
             "Trang_Thai": xuat_chieu.Trang_Thai
         }
