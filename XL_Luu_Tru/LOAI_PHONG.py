@@ -9,7 +9,7 @@ class LOAI_PHONG(db.Model):
     So_Ghe = db.Column(db.Integer, nullable=False)
     So_Day = db.Column(db.Integer, nullable=False)
     
-    Phongs = db.relationship("PHONG", back_populates="Loai_Phong")
+    Phongs = db.relationship("PHONG", back_populates="Loai_Phong", lazy="noload")
     
     def __repr__(self):
         return f'<LOAI_PHONG {self.Ten}>'

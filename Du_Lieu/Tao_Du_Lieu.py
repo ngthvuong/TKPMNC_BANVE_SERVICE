@@ -210,7 +210,8 @@ def Tao_Du_Lieu():
     )
     for xuat_chieu in xuat_chieus:
         range_random = 100 if xuat_chieu.Phong.Loai_Phong.Ten == "Loại 1" else 60
-        for i in range(range_random):
+        random_number = random.randint(0, range_random)
+        for i in range(random_number):
             ve = VE(
                 Gia = xuat_chieu.Don_Gia,
                 Xuat_Chieu_ID = xuat_chieu.ID,

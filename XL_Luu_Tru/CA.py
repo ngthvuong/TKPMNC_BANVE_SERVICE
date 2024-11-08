@@ -9,7 +9,7 @@ class CA(db.Model):
     Bat_Dau = db.Column(db.String(5), nullable=False)
     Ket_Thuc = db.Column(db.String(5), nullable=False)
     
-    Xuat_Chieus = db.relationship("XUAT_CHIEU", back_populates="Ca")
+    Xuat_Chieus = db.relationship("XUAT_CHIEU", back_populates="Ca", lazy="noload")
     
     def __repr__(self):
         return f'<CA {self.Ten}>'

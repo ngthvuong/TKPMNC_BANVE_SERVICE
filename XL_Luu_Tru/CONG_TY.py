@@ -9,8 +9,8 @@ class CONG_TY(db.Model):
     Dia_Chi = db.Column(db.Text, nullable=False)
     Dien_Thoai = db.Column(db.String(15), nullable=False)
     
-    Nhan_Viens = db.relationship("NHAN_VIEN", back_populates="Cong_Ty", cascade="all, delete-orphan")
-    Raps = db.relationship("RAP", back_populates="Cong_Ty", cascade="all, delete-orphan")
+    Nhan_Viens = db.relationship("NHAN_VIEN", back_populates="Cong_Ty", cascade="all, delete-orphan", lazy="noload")
+    Raps = db.relationship("RAP", back_populates="Cong_Ty", cascade="all, delete-orphan", lazy="noload")
     
     def __repr__(self):
         return f'<CONG_TY {self.Ten}>'

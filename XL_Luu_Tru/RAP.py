@@ -11,10 +11,10 @@ class RAP(db.Model):
     Quan_Ly_ID = db.Column(db.Integer, db.ForeignKey("NHAN_VIEN.ID"), nullable=True)
     CONG_TY_ID = db.Column(db.Integer, db.ForeignKey("CONG_TY.ID"), nullable=False)
     
-    Quan_Ly = db.relationship("NHAN_VIEN", back_populates="Raps")
-    Cong_Ty = db.relationship("CONG_TY", back_populates="Raps")
+    Quan_Ly = db.relationship("NHAN_VIEN", back_populates="Raps", lazy="noload")
+    Cong_Ty = db.relationship("CONG_TY", back_populates="Raps", lazy="noload")
     
-    Phongs = db.relationship("PHONG", back_populates="Rap", cascade="all, delete-orphan")
+    Phongs = db.relationship("PHONG", back_populates="Rap", cascade="all, delete-orphan", lazy="noload")
     
     def __repr__(self):
         return f'<RAP {self.Ten}>'

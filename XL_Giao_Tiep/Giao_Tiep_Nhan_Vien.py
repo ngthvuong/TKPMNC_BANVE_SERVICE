@@ -13,6 +13,6 @@ class Giao_Tiep_Nhan_Vien:
     
     @staticmethod
     def Danh_Sach(nhan_viens):
-        return [Giao_Tiep_Nhan_Vien.resource(nhan_vien) for nhan_vien in nhan_viens]
+        return [Giao_Tiep_Nhan_Vien.Doi_Tuong(nhan_vien) for nhan_vien in nhan_viens]
     
     

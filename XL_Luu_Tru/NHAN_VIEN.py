@@ -12,9 +12,9 @@ class NHAN_VIEN(db.Model):
     
     Cong_Ty_ID = db.Column(db.Integer, db.ForeignKey("CONG_TY.ID"), nullable=False)
     
-    Cong_Ty = db.relationship("CONG_TY", back_populates="Nhan_Viens")
+    Cong_Ty = db.relationship("CONG_TY", back_populates="Nhan_Viens", lazy="noload")
 
-    Raps = db.relationship("RAP", back_populates="Quan_Ly")
+    Raps = db.relationship("RAP", back_populates="Quan_Ly", lazy="noload")
     
     def __repr__(self):
         return f'<NHAN_VIEN {self.Email}>'

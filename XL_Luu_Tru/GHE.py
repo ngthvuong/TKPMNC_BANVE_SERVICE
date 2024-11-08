@@ -9,9 +9,9 @@ class GHE(db.Model):
     
     Phong_ID = db.Column(db.Integer, db.ForeignKey("PHONG.ID"), nullable=False)
     
-    Phong = db.relationship("PHONG", back_populates="Ghes")
+    Phong = db.relationship("PHONG", back_populates="Ghes", lazy="noload")
     
-    Ves = db.relationship("VE", back_populates="Ghe", cascade="all, delete-orphan")
+    Ves = db.relationship("VE", back_populates="Ghe", cascade="all, delete-orphan", lazy="noload")
     
     def __repr__(self):
         return f'<GHE {self.Ten}>'

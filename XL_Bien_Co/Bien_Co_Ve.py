@@ -7,6 +7,10 @@ class Bien_Co_Ve:
         # Thêm Vé
         return jsonify({"success": True })
     
+    def Lay_Ve_Theo_Xuat_Chieu(self):
+        # Thêm Vé
+        return jsonify({"success": True })
+    
     def Thong_Ke_So_Ve_Ban():
         # Tháng
         # Năm
