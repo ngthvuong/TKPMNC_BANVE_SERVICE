@@ -15,6 +15,9 @@ class Giao_Tiep_Phong:
         if phong.Rap:
             from XL_Giao_Tiep.Giao_Tiep_Rap import Giao_Tiep_Rap
             Ket_Qua["Rap"] = Giao_Tiep_Rap.Doi_Tuong(phong.Rap)
+        if phong.Ghes:
+            from XL_Giao_Tiep.Giao_Tiep_Ghe import Giao_Tiep_Ghe
+            Ket_Qua["Ghes"] = Giao_Tiep_Ghe.Danh_Sach(phong.Ghes)
         
         return Ket_Qua
     

@@ -167,7 +167,7 @@ def Tao_Du_Lieu():
         for phong in rap.Phongs:
             so_ghe = next((lp.So_Ghe for lp in loai_phong if lp.ID == phong.Loai_Phong_ID), None)
             phong.Ghes = [
-                GHE(Ten = f"Ghe {i+1}") for i in range(so_ghe)
+                GHE(Ten = f"Ghế Số {i+1}") for i in range(so_ghe)
             ]
     congty.Raps.extend(raps)
     db.session.commit()
@@ -180,10 +180,11 @@ def Tao_Du_Lieu():
     phims = db.session.query(PHIM).all()
     for i in range(45):
         ngay_muc_tieu = ngay_bat_dau + timedelta(days = i)
+        cac_phim_theo_giai_doan = phims[i:i+10] if i + 10  <= len(phims) else phims[i:]
         for ca in cas:
             for phong in phongs:
-                if(random.randint(0,2)):
-                    phim = random.choice(phims)
+                if(random.randint(0,3)):
+                    phim = random.choice(cac_phim_theo_giai_doan)
                     xuat_chieu = XUAT_CHIEU(
                         Ngay_Chieu=ngay_muc_tieu.date(),
                         Don_Gia=80000,

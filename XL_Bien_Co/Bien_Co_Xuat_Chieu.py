@@ -23,14 +23,14 @@ class Bien_Co_Xuat_Chieu:
                 joinedload(XUAT_CHIEU.Ca),
                 joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Loai_Phong),
                 joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Rap),
-                # joinedload(XUAT_CHIEU.Ves).joinedload(VE.Ghe),
             )
             .filter(
-                XUAT_CHIEU.Ngay_Chieu >= date.today()
+                XUAT_CHIEU.Ngay_Chieu >= datetime.today()
             )
             .all()
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))
+
     
     def Lay_Danh_Sach_Chua_Chieu_Theo_Quan_Ly(self):
         Xuat_Chieus = (
@@ -40,7 +40,6 @@ class Bien_Co_Xuat_Chieu:
                 joinedload(XUAT_CHIEU.Ca),
                 joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Loai_Phong),
                 joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Rap),
-                # joinedload(XUAT_CHIEU.Ves).joinedload(VE.Ghe),
             )
             .filter(
                 XUAT_CHIEU.Phong.has(PHONG.Rap_ID.in_([1,2])),
@@ -49,8 +48,26 @@ class Bien_Co_Xuat_Chieu:
             .all()
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))    
+
+    
     def Lay_Xuat_Chieu(self):
-        return jsonify({"success" : True})
+        ID = request.args.get('ID')
+        Xuat_Chieu = (
+            db.session.query(XUAT_CHIEU)
+            .options(
+                joinedload(XUAT_CHIEU.Phim),
+                joinedload(XUAT_CHIEU.Ca),
+                joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Loai_Phong),
+                joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Rap),
+                joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Ghes),
+                joinedload(XUAT_CHIEU.Ves).joinedload(VE.Ghe),
+            )
+            .filter(
+                XUAT_CHIEU.ID == ID
+            )
+            .first()
+        )
+        return jsonify(Giao_Tiep_Xuat_Chieu.Doi_Tuong(Xuat_Chieu))
     
     def Them_Xuat_Chieu(self):
         return jsonify({"success" : True})

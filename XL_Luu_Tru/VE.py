@@ -14,5 +14,5 @@ class VE(db.Model):
     Xuat_Chieu = db.relationship("XUAT_CHIEU", back_populates="Ves", lazy="noload")
     
     def __repr__(self):
-        return f'<VE {self.Xuat_Chieu_ID} {self.Gia}>'
+        return f'<VE {self.ID} {self.Gia}>'
     
