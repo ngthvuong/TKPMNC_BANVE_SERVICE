@@ -31,8 +31,7 @@ class Bien_Co_Xuat_Chieu:
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))
 
-    
-    def Lay_Danh_Sach_Chua_Chieu_Theo_Quan_Ly(self):
+    def Lay_Danh_Sach_Chua_Chieu_Theo_Quan_Ly(self, Quan_Ly_ID):
         Xuat_Chieus = (
             db.session.query(XUAT_CHIEU)
             .options(
@@ -42,14 +41,13 @@ class Bien_Co_Xuat_Chieu:
                 joinedload(XUAT_CHIEU.Phong).joinedload(PHONG.Rap),
             )
             .filter(
-                XUAT_CHIEU.Phong.has(PHONG.Rap_ID.in_([1,2])),
+                XUAT_CHIEU.Phong.has(PHONG.Rap.has(RAP.Quan_Ly_ID == Quan_Ly_ID)),
                 XUAT_CHIEU.Ngay_Chieu >= date.today()
             )
             .all()
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))    
 
-    
     def Lay_Xuat_Chieu(self):
         ID = request.args.get('ID')
         Xuat_Chieu = (
@@ -69,11 +67,11 @@ class Bien_Co_Xuat_Chieu:
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Doi_Tuong(Xuat_Chieu))
     
-    def Them_Xuat_Chieu(self):
+    def Them_Xuat_Chieu(self, ID):
         return jsonify({"success" : True})
     
-    def Sua_Xuat_Chieu(self):
+    def Sua_Xuat_Chieu(self, ID):
         return jsonify({"success" : True})
     
-    def Xoa_Xuat_Chieu(self):
+    def Xoa_Xuat_Chieu(self, ID):
         return jsonify({"success" : True})
