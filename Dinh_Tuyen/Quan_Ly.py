@@ -31,6 +31,10 @@ def Lay_Danh_Sach_Chua_Chieu_Theo_Quan_Ly(Quan_Ly_ID):
 def Lay_Xuat_Chieu():
     return XL_Bien_Co_Xuat_Chieu.Lay_Xuat_Chieu()
 
+@Quan_Ly_BP.route("/xuatchieu", methods=['POST'])
+def Them_Xuat_Chieu():
+    return XL_Bien_Co_Xuat_Chieu.Them_Xuat_Chieu()
+
 @Quan_Ly_BP.route("/rap/danhsachquanly/<int:Quan_Ly_ID>", methods=['GET'])
 def Lay_Danh_Sach_Rap_Theo_Quan_Ly(Quan_Ly_ID):
     return XL_Bien_Co_Rap.Lay_Danh_Sach_Rap_Theo_Quan_Ly(Quan_Ly_ID)

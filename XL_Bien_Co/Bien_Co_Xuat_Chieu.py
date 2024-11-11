@@ -44,6 +44,7 @@ class Bien_Co_Xuat_Chieu:
                 XUAT_CHIEU.Phong.has(PHONG.Rap.has(RAP.Quan_Ly_ID == Quan_Ly_ID)),
                 XUAT_CHIEU.Ngay_Chieu >= date.today()
             )
+            .order_by(XUAT_CHIEU.Ngay_Chieu.desc())
             .all()
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Danh_Sach(Xuat_Chieus))    
@@ -67,8 +68,38 @@ class Bien_Co_Xuat_Chieu:
         )
         return jsonify(Giao_Tiep_Xuat_Chieu.Doi_Tuong(Xuat_Chieu))
     
-    def Them_Xuat_Chieu(self, ID):
-        return jsonify({"success" : True})
+    def Them_Xuat_Chieu(self):
+        Yeu_Cau = request.get_json()
+        
+        Ngay_Chieu = datetime.strptime(Yeu_Cau.get('Ngay_Chieu'), "%Y-%m-%d").date()
+        Don_Gia = Yeu_Cau.get('Don_Gia')
+        Phim_ID = Yeu_Cau.get('Phim_ID')
+        Ca_ID = Yeu_Cau.get('Ca_ID')
+        Phong_ID = Yeu_Cau.get('Phong_ID')
+        
+        Xuat_Chieu = (
+            db.session.query(XUAT_CHIEU)
+            .filter(
+                XUAT_CHIEU.Phong_ID == Phong_ID,
+                XUAT_CHIEU.Ca_ID == Ca_ID,
+                XUAT_CHIEU.Ngay_Chieu == Ngay_Chieu,
+            )
+            .first()
+        )
+        if Xuat_Chieu:
+            return jsonify({"error": "Phòng này đã có xuất chiếu cùng thời điểm được tạo!" })
+        
+        Xuat_Chieu_Moi = XUAT_CHIEU(
+            Ngay_Chieu=Ngay_Chieu,
+            Don_Gia=Don_Gia,
+            Phim_ID=Phim_ID,
+            Ca_ID=Ca_ID,
+            Phong_ID=Phong_ID
+        )
+        db.session.add(Xuat_Chieu_Moi)
+        db.session.commit()
+
+        return jsonify(Giao_Tiep_Xuat_Chieu.Doi_Tuong(Xuat_Chieu_Moi))
     
     def Sua_Xuat_Chieu(self, ID):
         return jsonify({"success" : True})
