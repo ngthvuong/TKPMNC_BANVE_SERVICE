@@ -35,7 +35,7 @@ def Tao_Du_Lieu():
     
     # Thêm ca chiếu
     print("Dang them CA")
-    ca_1 = CA(Ten="Sáng", Bat_Dau="9h00", Ket_Thuc="11h00")
+    ca_1 = CA(Ten="Sáng", Bat_Dau="09h00", Ket_Thuc="11h00")
     ca_2 = CA(Ten="Chiều", Bat_Dau="14h00", Ket_Thuc="16h00")
     ca_3 = CA(Ten="Tối", Bat_Dau="18h00", Ket_Thuc="20h00")
     ca_4 = CA(Ten="Tối", Bat_Dau="20h30", Ket_Thuc="22h30")
@@ -180,7 +180,7 @@ def Tao_Du_Lieu():
     phims = db.session.query(PHIM).all()
     for i in range(45):
         ngay_muc_tieu = ngay_bat_dau + timedelta(days = i)
-        cac_phim_theo_giai_doan = phims[i:i+10] if i + 10  <= len(phims) else phims[i:]
+        cac_phim_theo_giai_doan = phims[0:10]
         for ca in cas:
             for phong in phongs:
                 if(random.randint(0,3)):
@@ -211,7 +211,7 @@ def Tao_Du_Lieu():
     )
     for xuat_chieu in xuat_chieus:
         range_random = 100 if xuat_chieu.Phong.Loai_Phong.Ten == "Loại 1" else 60
-        random_number = random.randint(0, range_random)
+        random_number = random.randint(10, range_random)
         for i in range(random_number):
             ve = VE(
                 Gia = xuat_chieu.Don_Gia,
