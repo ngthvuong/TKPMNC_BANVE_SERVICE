@@ -4,6 +4,6 @@
 pip freeze > requirements.txt
 
 ## Recreate The Virtual environment
-python -m venv .venv
-source .venv\Scripts\activate on Windows
 pip install -r requirements.txt
+python -m venv .venv
+.venv\Scripts\activate on Windows

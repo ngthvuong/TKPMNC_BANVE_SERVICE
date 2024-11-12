@@ -130,12 +130,12 @@ def Tao_Du_Lieu():
     # Thêm nhân viên
     print("Dang them NHAN_VIEN")
     nhan_viens = [
-        NHAN_VIEN(Ho_Ten = "Nguyễn Văn Tí Ròm", Email="nvti_rom@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
-        NHAN_VIEN(Ho_Ten = "Lê Văn Tí Cao", Email="nvti_cao@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
-        NHAN_VIEN(Ho_Ten = "Lý Thị Tí Tẹo", Email="nvti_teo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
-        NHAN_VIEN(Ho_Ten = "Trần Thị Tí Nị", Email="nvti_ni@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
-        NHAN_VIEN(Ho_Ten = "Dương Văn Tí Mập", Email="nvti_map@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
-        NHAN_VIEN(Ho_Ten = "Ngô Thị Tí Mèo", Email="nvti_meo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Nguyễn Văn Tí Ròm", Email="tirom@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
+        NHAN_VIEN(Ho_Ten = "Lê Văn Tí Cao", Email="ticao@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Lý Thị Tí Tẹo", Email="titeo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Trần Thị Tí Nị", Email="tini@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
+        NHAN_VIEN(Ho_Ten = "Dương Văn Tí Mập", Email="timap@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Ngô Thị Tí Mèo", Email="timeo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
     ]
     congty.Nhan_Viens.extend(nhan_viens)
     db.session.commit()
@@ -174,11 +174,11 @@ def Tao_Du_Lieu():
     
     #Thêm xuất chiếu
     print("Dang them XUAT_CHIEU")
-    ngay_bat_dau = datetime.strptime("2024-11-01", "%Y-%m-%d")
+    ngay_bat_dau = datetime.strptime("2023-11-01", "%Y-%m-%d")
     cas = db.session.query(CA).all()
     phongs = db.session.query(PHONG).all()
     phims = db.session.query(PHIM).all()
-    for i in range(45):
+    for i in range(400):
         ngay_muc_tieu = ngay_bat_dau + timedelta(days = i)
         cac_phim_theo_giai_doan = phims[0:10]
         for ca in cas:
@@ -188,7 +188,6 @@ def Tao_Du_Lieu():
                     xuat_chieu = XUAT_CHIEU(
                         Ngay_Chieu=ngay_muc_tieu.date(),
                         Don_Gia=80000,
-                        Trang_Thai= "Dang_Mo" if datetime.today().date() <= ngay_muc_tieu.date() else "Ket_Thuc",
                         Phong_ID=phong.ID,
                         Phim_ID=phim.ID,
                         Ca_ID=ca.ID

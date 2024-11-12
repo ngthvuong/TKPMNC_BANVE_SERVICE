@@ -10,7 +10,6 @@ class Giao_Tiep_Xuat_Chieu:
             "ID" : xuat_chieu.ID,
             "Ngay_Chieu": datetime.strftime(xuat_chieu.Ngay_Chieu, '%d-%m-%Y'),
             "Don_Gia": xuat_chieu.Don_Gia,
-            "Trang_Thai": xuat_chieu.Trang_Thai
         }
         if xuat_chieu.Phim:
             from XL_Giao_Tiep.Giao_Tiep_Phim import Giao_Tiep_Phim

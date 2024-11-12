@@ -7,11 +7,10 @@ class XUAT_CHIEU(db.Model):
     ID = db.Column(db.Integer, primary_key=True)
     Ngay_Chieu = db.Column(db.Date, nullable=False, index=True)
     Don_Gia = db.Column(db.Integer, nullable=False)
-    Trang_Thai = db.Column(db.Enum("Dang_Mo", "Ket_Thuc"), nullable=False, default="Dang_Mo")
     
     Phong_ID = db.Column(db.Integer, db.ForeignKey("PHONG.ID"), nullable=False)    
     Phim_ID = db.Column(db.Integer, db.ForeignKey("PHIM.ID"), nullable=False)
-    Ca_ID = db.Column(db.Integer, db.ForeignKey("CA.ID"), nullable=True)
+    Ca_ID = db.Column(db.Integer, db.ForeignKey("CA.ID"), nullable=False)
     
     
     Phong = db.relationship("PHONG", back_populates="Xuat_Chieus", lazy="noload")
