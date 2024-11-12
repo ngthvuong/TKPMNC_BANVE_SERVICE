@@ -183,7 +183,7 @@ def Tao_Du_Lieu():
         cac_phim_theo_giai_doan = phims[0:10]
         for ca in cas:
             for phong in phongs:
-                if(random.randint(0,3)):
+                if(random.randint(0,2)):
                     phim = random.choice(cac_phim_theo_giai_doan)
                     xuat_chieu = XUAT_CHIEU(
                         Ngay_Chieu=ngay_muc_tieu.date(),
@@ -210,7 +210,7 @@ def Tao_Du_Lieu():
     )
     for xuat_chieu in xuat_chieus:
         range_random = 100 if xuat_chieu.Phong.Loai_Phong.Ten == "Loại 1" else 60
-        random_number = random.randint(10, range_random)
+        random_number = random.randint(10, range_random - 20)
         for i in range(random_number):
             ve = VE(
                 Gia = xuat_chieu.Don_Gia,
