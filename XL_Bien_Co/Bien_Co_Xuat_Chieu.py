@@ -150,7 +150,6 @@ class Bien_Co_Xuat_Chieu:
     
     def Xoa_Xuat_Chieu(self, ID):
         Kiem_Tra_Ve = db.session.query(VE).filter_by(Xuat_Chieu_ID=ID).first()
-        print(Kiem_Tra_Ve)
         if Kiem_Tra_Ve:
             return jsonify({"error": "Không thể sửa xuất chiếu đã bán vé!"})
         
