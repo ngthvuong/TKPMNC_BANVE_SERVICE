@@ -146,11 +146,11 @@ def Tao_Du_Lieu():
     # Thêm rạp
     print("Dang them RAP")
     raps = [
-        RAP(Ten = "PHP Cinema", Dia_Chi = "101 Le Lai, Ben Thanh, Q1, TP.HCM", Quan_Ly_ID = random.choice(nhan_vien_quan_ly).ID),
-        RAP(Ten = "Javascript Cinema", Dia_Chi = "202 Nguyen Thi Minh Khai, Q3, TP.HCM", Quan_Ly_ID = random.choice(nhan_vien_quan_ly).ID),
-        RAP(Ten = "Python Cinema", Dia_Chi = "123 Nguyen Trai, Q1, TP.HCM", Quan_Ly_ID = random.choice(nhan_vien_quan_ly).ID),
-        RAP(Ten = "C# Cinema", Dia_Chi = "303 Vo Van Tan, Q3, TP.HCM", Quan_Ly_ID = random.choice(nhan_vien_quan_ly).ID),
-        RAP(Ten = "C++ Cinema", Dia_Chi = "505 Nguyen Hue, Ben Nghe, Q1, TP.HCM", Quan_Ly_ID = random.choice(nhan_vien_quan_ly).ID),
+        RAP(Ten = "PHP Cinema", Dia_Chi = "101 Le Lai, Ben Thanh, Q1, TP.HCM", Quan_Ly_ID = nhan_vien_quan_ly[0].ID),
+        RAP(Ten = "Javascript Cinema", Dia_Chi = "202 Nguyen Thi Minh Khai, Q3, TP.HCM", Quan_Ly_ID = nhan_vien_quan_ly[0].ID),
+        RAP(Ten = "Python Cinema", Dia_Chi = "123 Nguyen Trai, Q1, TP.HCM", Quan_Ly_ID = nhan_vien_quan_ly[1].ID),
+        RAP(Ten = "C# Cinema", Dia_Chi = "303 Vo Van Tan, Q3, TP.HCM", Quan_Ly_ID = nhan_vien_quan_ly[0].ID),
+        RAP(Ten = "C++ Cinema", Dia_Chi = "505 Nguyen Hue, Ben Nghe, Q1, TP.HCM", Quan_Ly_ID = nhan_vien_quan_ly[1].ID),
     ]
     
     # Thêm phòng
