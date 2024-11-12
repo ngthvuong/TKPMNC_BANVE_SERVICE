@@ -130,12 +130,12 @@ def Tao_Du_Lieu():
     # Thêm nhân viên
     print("Dang them NHAN_VIEN")
     nhan_viens = [
-        NHAN_VIEN(Ho_Ten = "Nguyễn Văn Tí Ròm", Email="tirom@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
-        NHAN_VIEN(Ho_Ten = "Lê Văn Tí Cao", Email="ticao@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
-        NHAN_VIEN(Ho_Ten = "Lý Thị Tí Tẹo", Email="titeo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
-        NHAN_VIEN(Ho_Ten = "Trần Thị Tí Nị", Email="tini@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
-        NHAN_VIEN(Ho_Ten = "Dương Văn Tí Mập", Email="timap@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
-        NHAN_VIEN(Ho_Ten = "Ngô Thị Tí Mèo", Email="timeo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Nguyễn Văn Tí Ròm", Email="ti_rom@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
+        NHAN_VIEN(Ho_Ten = "Lê Văn Tí Cao", Email="ti_cao@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Lý Thị Tí Tẹo", Email="ti_teo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Trần Thị Tí Nị", Email="ti_ni@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Quan_Ly_Rap"),
+        NHAN_VIEN(Ho_Ten = "Dương Văn Tí Mập", Email="ti_map@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
+        NHAN_VIEN(Ho_Ten = "Ngô Thị Tí Mèo", Email="ti_meo@gmail.com", Mat_Khau="!234qweR", Vai_Tro= "Nhan_Vien_Ban_Ve"),
     ]
     congty.Nhan_Viens.extend(nhan_viens)
     db.session.commit()
